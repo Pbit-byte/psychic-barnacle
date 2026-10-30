@@ -1,6 +1,0 @@
-[
-  { "id": "animalplanet", "name": "MAGMA - Animal Planet",       "match": ["^animal planet"], "poster": "" },
-  { "id": "discovery",    "name": "MAGMA - Discovery",           "match": ["^discovery", "^investigation discovery"], "poster": "" },
-  { "id": "history",      "name": "MAGMA - History",             "match": ["^h2$", "^history"], "poster": "" },
-  { "id": "natgeo",       "name": "MAGMA - National Geographic", "match": ["^nat geo", "^national geographic"], "poster": "" }
-]
