@@ -469,3 +469,55 @@ http://205.235.6.29:8000/play/a0zv/index.m3u8?hls
 http://205.235.6.29:8000/play/a0wl/index.m3u8?hls
 #EXTINF:-1,ESPN 1 | Usa
 http://181.119.177.253:8000/play/a0ck/index.m3u8
+#EXTINF:-1,ESPN 2 | Argentina
+http://181.205.130.194:4000/play/a07i
+#EXTINF:-1,Caracol | Colombia
+http://181.78.8.199:8000/play/a0b0/index.m3u8
+#EXTINF:-1,Win Sports
+http://190.60.37.118:4000/play/a0b2
+#EXTINF:-1,Win Sports 2
+http://190.60.37.118:4000/play/a0bw
+#EXTINF:-1,ESPN 2 | Mexico
+http://45.167.1.136:8000/play/a06b
+#EXTINF:-1,ESPN 3 | Mexico
+http://45.167.1.136:8000/play/a02k
+#EXTINF:-1,ESPN 3 | Mexico
+http://45.181.122.46:8090/play/a01t
+#EXTINF:-1,ESPN 4 | Mexico
+http://45.167.1.136:8000/play/a02l
+#EXTINF:-1,ESPN 5 | Mexico
+http://45.167.1.136:8000/play/a04g
+#EXTINF:-1,ESPN 6 | Mexico
+http://45.167.1.136:8000/play/a06d
+#EXTINF:-1,Claro Sports
+http://45.167.1.136:8000/play/a00d
+#EXTINF:-1,Golf Channel
+http://45.167.1.136:8000/play/a05s
+#EXTINF:-1,ESPN 1 | Colombia
+http://181.205.130.194:4000/play/a08n
+#EXTINF:-1,ESPN 6 HD
+http://181.205.130.194:4000/play/a0eh
+#EXTINF:-1,ESPN Premium HD | Chile
+http://181.205.130.194:4000/play/a0fk
+#EXTINF:-1,Win Sports + HD
+http://181.205.130.194:4000/play/a0fu
+#EXTINF:-1,ESPN 5 HD
+http://181.205.130.194:4000/play/a0fs
+#EXTINF:-1,ESPN 1 | Argentina
+http://181.205.130.194:4000/play/a07j
+#EXTINF:-1,ESPN 2 | Mexico
+http://190.83.9.222:8000/play/ca129
+#EXTINF:-1,DAZN 5
+http://23.237.104.106:8080/DAZN_5/index.m3u8
+#EXTINF:-1,SoloCalcio
+https://italiansport-solocalcio-samsung.amagi.tv/ts-us-e2-n1/playlist/sportital-solocalcio-samsung-italy/playlist.m3u8
+#EXTINF:-1,Win Sports +
+http://181.205.130.194:4000/play/a0f1
+#EXTINF:-1,BEIN SPORTS Extra
+https://amg01334-amg01334c2-freelivesports-emea-6791.playouts.now.amagi.tv/playlist/amg01334-beinxtra-beinxtrausapp-freelivesportsemea/playlist.m3u8
+#EXTINF:-1,Goal TV
+https://amg00585-sportstribal-amg00585c1-sportstribal-emea-2175.playouts.now.amagi.tv/playlist/amg00585-sportstribaltvfast-goaltv-sportstribalemea/playlist.m3u8
+#EXTINF:-1,Fox Sports 2 | Usa
+https://tvsen7.aynaott.com/foxsports2/index.m3u8?e=1779283790&u=78be6644-0a65-48ec-81a4-089ac65a2619&token=cbb7f40b4af7be51a91e0629a5ac7238
+#EXTINF:-1,Bein Sports Xtra
+https://d9ssxzmclhfo4.cloudfront.net/bein_sports720p.m3u8
