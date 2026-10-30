@@ -10,6 +10,9 @@ const magma = require('./magma');
 //   "poster" = (opcional) URL de una imagen para todos los canales de ese catálogo.
 // Un canal con varias fuentes en la lista (mismo nombre) aparece UNA vez y reúne todas sus opciones.
 // Los .m3u8 son directos: no pasan por el proxy (salvo MAGMA_PROXY=1), igual que MAGMA en los eventos.
+// Imágenes por canal: src/data/magma_posters.json  { "Discovery Turbo": "https://.../logo.png", ... }
+//   (se busca por el nombre del canal; si falta, se usa el "poster" del catálogo; si tampoco hay, sin imagen).
+//   Las imágenes se ajustan a un cuadrado con images.weserv.nl, igual que los canales de LA18HD (MAGMA_POSTER_FIT=0 lo desactiva).
 // DISABLE_MAGMA=1 los oculta. MAGMA_CATALOGS_FILE=ruta usa otro archivo de definición.
 // ==========================================
 
@@ -22,6 +25,27 @@ function fold(s) {
 // clave de canal: "Discovery Theater HD" y "Discovery Theater" son el mismo canal
 function channelKey(name) {
   return fold(name).replace(/\bhd\b/g, ' ').replace(/[^a-z0-9]+/g, '');
+}
+
+const POSTERS_FILE = process.env.MAGMA_POSTERS_FILE || path.join(__dirname, '..', 'data', 'magma_posters.json');
+let _posters = null;
+function posters() {
+  if (_posters) return _posters;
+  _posters = {};
+  try {
+    const o = JSON.parse(fs.readFileSync(POSTERS_FILE, 'utf8'));
+    for (const [name, url] of Object.entries(o || {})) {
+      if (typeof url === 'string' && /^https:\/\/\S+$/.test(url)) _posters[channelKey(name)] = url; // solo https; vacío = sin imagen
+    }
+  } catch (e) {
+    if (e.code !== 'ENOENT') console.log(`[magma-catalog] magma_posters.json inválido: ${e.message}`);
+  }
+  return _posters;
+}
+// cuadrado con fondo oscuro (los logos suelen ser apaisados); ya hecho si la URL es de weserv
+function fitSquare(url) {
+  if (process.env.MAGMA_POSTER_FIT === '0' || /^https:\/\/images\.weserv\.nl\//.test(url)) return url;
+  return `https://images.weserv.nl/?url=${encodeURIComponent(url)}&w=300&h=300&fit=contain&bg=1a1a2eff`;
 }
 
 let _cats = null;
@@ -72,7 +96,8 @@ function fromId(id) {
 }
 function metaOf(cat, ch) {
   const m = { id: toId(cat.id, ch.name), type: 'tv', name: ch.name, posterShape: 'square' };
-  if (cat.poster) { m.poster = cat.poster; m.background = cat.poster; m.logo = cat.poster; }
+  const raw = posters()[channelKey(ch.name)] || cat.poster; // imagen del canal; si no hay, la del catálogo
+  if (raw) { const img = fitSquare(raw); m.poster = img; m.background = img; m.logo = img; }
   return m;
 }
 function find(id) {
